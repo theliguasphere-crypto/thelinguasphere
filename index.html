@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lingua Sphere | Art of Language</title>
+    <title>The Lingua Sphere | Transcending Borders</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
             --cream: #fdfaf5;
             --clay: #d4a373;
             --charcoal: #2d2d2d;
-            --glass: rgba(255, 255, 255, 0.6);
+            --glass: rgba(255, 255, 255, 0.7);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,56 +26,66 @@
         /* Artistic Background Blobs */
         .blob {
             position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(212, 163, 115, 0.2) 0%, rgba(253, 250, 245, 0) 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 163, 115, 0.15) 0%, rgba(253, 250, 245, 0) 70%);
             border-radius: 50%;
             z-index: -1;
-            filter: blur(50px);
+            filter: blur(60px);
         }
 
-        /* Layout */
-        header {
-            padding: 40px 10%;
+        /* Navigation */
+        nav {
+            padding: 30px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
 
+        /* Hero Section */
         .hero {
-            padding: 60px 10%;
+            padding: 40px 10% 100px 10%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             min-height: 80vh;
+            gap: 50px;
         }
 
-        .hero-content { max-width: 600px; }
+        .hero-content { max-width: 550px; }
+
+        .logo-img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+        }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: var(--charcoal);
         }
 
-        .logo-img {
-            width: 180px;
-            height: auto;
+        .hero-p {
+            font-size: 1.2rem;
             margin-bottom: 30px;
-            transition: transform 0.3s ease;
+            color: #555;
         }
 
-        .logo-img:hover { transform: scale(1.05); }
-
-        /* The Form Card */
+        /* Contact Form Card */
         .contact-card {
             background: var(--glass);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
             width: 100%;
             max-width: 450px;
         }
@@ -83,35 +93,82 @@
         .contact-card h2 {
             font-family: 'Playfair Display', serif;
             margin-bottom: 20px;
+            font-size: 2rem;
         }
 
         form { display: flex; flex-direction: column; gap: 15px; }
 
         input, textarea {
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            background: rgba(255,255,255,0.8);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.9);
             font-family: inherit;
-        }
-
-        button {
-            padding: 15px;
-            background: var(--charcoal);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
             transition: 0.3s;
         }
 
-        button:hover { background: var(--clay); }
+        input:focus { outline: none; border-color: var(--clay); }
 
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; }
-            h1 { font-size: 2.5rem; }
-            .contact-card { margin-top: 40px; }
+        button {
+            padding: 18px;
+            background: var(--charcoal);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-top: 10px;
+        }
+
+        button:hover { background: var(--clay); transform: translateY(-2px); }
+
+        /* The Method Section */
+        .method-section {
+            padding: 100px 10%;
+            background: white;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            padding: 50px 30px;
+            background: var(--cream);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); background: #f9f4ec; }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 10%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 20px; }
+            h1 { font-size: 3rem; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -120,33 +177,56 @@
     <div class="blob" style="top: -100px; right: -100px;"></div>
     <div class="blob" style="bottom: -100px; left: -100px;"></div>
 
-    <header>
-        <div class="brand">THE LINGUA SPHERE</div>
-    </header>
+    <nav>
+        <div>THE LINGUA SPHERE</div>
+        <div>EST. 2026</div>
+    </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <img src="logo.png" alt="The Lingua Sphere Logo" class="logo-img">
+            <img src="logo.png" alt="The Lingua Sphere" class="logo-img">
             
-            <h1>Learn the Art of Speaking.</h1>
-            <p>Immersive language experiences designed for the global citizen. Join the collective and transcend borders.</p>
+            <h1>The Art of Speaking.</h1>
+            <p class="hero-p">Welcome to the collective. We don't just teach languages; we curate immersive cultural experiences for the modern global citizen.</p>
         </div>
 
         <div class="contact-card">
-            <h2>Enter the Sphere</h2>
-            
+            <h2>Connect</h2>
             <form name="contact" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="contact">
                 
-                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="tel" name="phone" placeholder="Phone Number">
-                <textarea name="message" rows="4" placeholder="How can we help you flourish?"></textarea>
+                <textarea name="message" rows="3" placeholder="Which language pulls at your soul?"></textarea>
                 
                 <button type="submit">Send Message</button>
             </form>
         </div>
     </section>
+
+    <section class="method-section">
+        <h2 class="section-title">The Sphere Method</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Immersion</h3>
+                <p>Surround yourself with the sounds, textures, and rhythms of your target language from day one.</p>
+            </div>
+            <div class="card">
+                <h3>Connection</h3>
+                <p>Language is a bridge. We focus on real-world conversations and human empathy over dry grammar.</p>
+            </div>
+            <div class="card">
+                <h3>Elegance</h3>
+                <p>A refined approach to learning that fits seamlessly into a sophisticated, global lifestyle.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 THE LINGUA SPHERE. All Rights Reserved.</p>
+        <p>tls.southasia@gmail.com</p>
+    </footer>
 
 </body>
 </html>
