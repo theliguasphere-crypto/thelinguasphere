@@ -22,16 +22,15 @@
             overflow-x: hidden;
         }
 
-        /* VIBRANT BACKGROUND ELEMENTS */
+        /* BACKGROUND ICONS */
         .cultural-bg {
             position: absolute;
-            z-index: -1;
-            opacity: 0.15; /* Subtle and artistic */
+            z-index: 1;
+            opacity: 0.1; 
             pointer-events: none;
-            filter: sepia(0.5);
+            filter: grayscale(1);
         }
 
-        /* RESTORED BOUNCING LOGO ANIMATION */
         @keyframes bounceFloat {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-30px) rotate(3deg); }
@@ -46,38 +45,117 @@
             position: relative;
         }
 
-        /* HERO SECTION */
         .hero {
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
         }
 
-        .hero-text { flex: 1.2; z-index: 2; }
+        .hero-text { flex: 1.2; z-index: 5; }
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-size: clamp(3rem, 8vw, 5rem);
             line-height: 1;
             margin-bottom: 25px;
         }
 
-        .logo-container { flex: 0.8; display: flex; justify-content: flex-end; }
+        .logo-container { flex: 0.8; display: flex; justify-content: flex-end; z-index: 5; }
         .floating-logo {
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             animation: bounceFloat 5s ease-in-out infinite;
         }
 
-        /* LANGUAGE CARDS */
         .lang-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
             margin-top: 50px;
+            z-index: 5;
         }
 
         .lang-card {
             background: white;
             padding: 40px 30px;
-            border-radius: 5px; /* Minimalist */
             text-align: center;
-            transition
+            transition: 0.4s;
+            border-bottom: 4px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .lang-card:hover { transform: translateY(-10px); border-color: var(--clay); }
+
+        .contact-section { background: #f9f6f2; text-align: center; }
+        .form-container { max-width: 600px; margin: 40px auto; }
+        
+        input, textarea {
+            width: 100%; padding: 20px; margin-bottom: 15px;
+            border: 1px solid #ddd; background: white; font-family: inherit;
+        }
+
+        button {
+            width: 100%; padding: 20px; background: var(--charcoal);
+            color: white; border: none; font-weight: 600; cursor: pointer; transition: 0.3s;
+        }
+        button:hover { background: var(--clay); }
+
+        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #aaa; }
+
+        @media (max-width: 1024px) {
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero-text h1 { font-size: 3.5rem; }
+            .floating-logo { width: 250px; margin-bottom: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <img src="https://cdn-icons-png.flaticon.com/512/604/604431.png" class="cultural-bg" style="top: 5%; left: 2%; width: 300px;" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/292/292837.png" class="cultural-bg" style="bottom: 5%; right: 2%; width: 350px;" alt="">
+
+        <div class="hero-text">
+            <h1>The Art of<br>Speaking.</h1>
+            <p style="font-size: 1.4rem; color: #555; max-width: 500px;">A curated collective for those who view language as the ultimate bridge between souls.</p>
+        </div>
+        
+        <div class="logo-container">
+            <img src="logo.png" alt="The Lingua Sphere" class="floating-logo">
+        </div>
+    </section>
+
+    <section style="background: white;">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 30px;">Our Collective</h2>
+            <p style="font-size: 1.2rem;">The Lingua Sphere is a sanctuary. We teach the rhythm of French, the precision of German, the passion of Spanish, and the grace of Japanese.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center;">Curated Languages</h2>
+        <div class="lang-grid">
+            <div class="lang-card"><h3>French</h3><p>Art, diplomacy, and romance.</p></div>
+            <div class="lang-card"><h3>German</h3><p>The language of the thinkers.</p></div>
+            <div class="lang-card"><h3>Spanish</h3><p>Rhythm and vibrant culture.</p></div>
+            <div class="lang-card"><h3>Japanese</h3><p>Precision and modern grace.</p></div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="form-container">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px;">The Details</h2>
+            <form name="inquiry" method="POST" data-netlify="true" action="/">
+                <input type="hidden" name="form-name" value="inquiry">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="tel" name="phone" placeholder="Phone Number">
+                <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>&copy; 2026 THE LINGUA SPHERE</footer>
+
+</body>
+</html>
