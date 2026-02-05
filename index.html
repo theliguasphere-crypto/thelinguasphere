@@ -10,35 +10,35 @@
             --cream: #fdfaf5;
             --clay: #d4a373;
             --charcoal: #2d2d2d;
-            --accent: #e9edc9;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* VIBRANT BACKGROUND ENGINE */
         body {
-            background: linear-gradient(-45deg, #fdfaf5, #f5ebe0, #e3d5ca, #fdfaf5);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: var(--cream);
             color: var(--charcoal);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* VIBRANT BACKGROUND ELEMENTS */
+        .cultural-bg {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.15; /* Subtle and artistic */
+            pointer-events: none;
+            filter: sepia(0.5);
         }
 
-        @keyframes float {
+        /* RESTORED BOUNCING LOGO ANIMATION */
+        @keyframes bounceFloat {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+            50% { transform: translateY(-30px) rotate(3deg); }
         }
 
         section {
-            min-height: 80vh;
+            min-height: 100vh;
             padding: 100px 10%;
             display: flex;
             flex-direction: column;
@@ -53,37 +53,21 @@
             align-items: center;
         }
 
-        .hero-text { flex: 1; z-index: 2; }
+        .hero-text { flex: 1.2; z-index: 2; }
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
             font-size: 5rem;
             line-height: 1;
             margin-bottom: 25px;
-            background: linear-gradient(to right, #2d2d2d, #d4a373);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        .logo-container { flex: 1; display: flex; justify-content: flex-end; }
+        .logo-container { flex: 0.8; display: flex; justify-content: flex-end; }
         .floating-logo {
-            width: 380px;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
-            animation: float 6s ease-in-out infinite;
+            width: 400px;
+            animation: bounceFloat 5s ease-in-out infinite;
         }
 
-        /* GLASS CARD EFFECT */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 30px;
-            padding: 60px;
-            margin: 20px 0;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
-        }
-
-        /* LANGUAGES GRID */
+        /* LANGUAGE CARDS */
         .lang-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -92,135 +76,8 @@
         }
 
         .lang-card {
-            background: rgba(255, 255, 255, 0.7);
+            background: white;
             padding: 40px 30px;
-            border-radius: 20px;
+            border-radius: 5px; /* Minimalist */
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid transparent;
-        }
-
-        .lang-card:hover {
-            transform: translateY(-15px);
-            background: #fff;
-            border-color: var(--clay);
-            box-shadow: 0 15px 30px rgba(212, 163, 115, 0.2);
-        }
-
-        .lang-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--clay);
-        }
-
-        /* FORM STYLING */
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 20px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.8);
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        button {
-            width: 100%;
-            padding: 20px;
-            background: var(--charcoal);
-            color: white;
-            border-radius: 15px;
-            border: none;
-            font-weight: 600;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: var(--clay);
-            transform: scale(1.02);
-        }
-
-        @media (max-width: 1024px) {
-            .hero { flex-direction: column; text-align: center; }
-            .hero-text h1 { font-size: 3.5rem; }
-            .floating-logo { width: 280px; margin-top: 40px; }
-        }
-    </style>
-</head>
-<body>
-
-    <section class="hero">
-        <div class="hero-text">
-            <h1>The Art of<br>Speaking.</h1>
-            <p style="font-size: 1.3rem; color: #555;">A curated collective where language meets soul. Discover the resonance of global culture.</p>
-        </div>
-        <div class="logo-container">
-            <img src="logo.png" alt="The Lingua Sphere" class="floating-logo">
-        </div>
-    </section>
-
-    <section>
-        <div class="glass-card" style="text-align: center;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 30px;">Our Philosophy</h2>
-            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-                The Lingua Sphere is a sanctuary for the curious. We believe that learning a language is an act of empathy. 
-                By moving beyond the textbook, we help you find your voice in the world's most poetic tongues.
-            </p>
-        </div>
-    </section>
-
-    <section style="background: rgba(212, 163, 115, 0.05);">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center;">Languages of the Sphere</h2>
-        <div class="lang-grid">
-            <div class="lang-card">
-                <h3>French</h3>
-                <p>The rhythm of art, diplomacy, and the ultimate romance.</p>
-            </div>
-            <div class="lang-card">
-                <h3>German</h3>
-                <p>Precision meets philosophy in the language of thinkers.</p>
-            </div>
-            <div class="lang-card">
-                <h3>Spanish</h3>
-                <p>A vibrant journey across twenty-one diverse cultures.</p>
-            </div>
-            <div class="lang-card">
-                <h3>Japanese</h3>
-                <p>A path of respect, timeless tradition, and modern grace.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="glass-card">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; text-align: center; margin-bottom: 20px;">The Details</h2>
-            <p style="text-align: center; margin-bottom: 40px;">Begin your journey into the collective.</p>
-            
-            <div class="form-container">
-                <form name="inquiry" method="POST" data-netlify="true" action="/">
-                    <input type="hidden" name="form-name" value="inquiry">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="tel" name="phone" placeholder="Phone Number">
-                    <textarea name="message" rows="4" placeholder="Which language pulls at your soul?"></textarea>
-                    <button type="submit">SEND MESSAGE</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 60px; font-size: 0.9rem; color: #777;">
-        &copy; 2026 THE LINGUA SPHERE &bull; tls.southasia@gmail.com
-    </footer>
-
-</body>
-</html>
+            transition
