@@ -22,7 +22,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Floating Logo Animation */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
@@ -31,114 +30,97 @@
 
         section {
             min-height: 100vh;
-            padding: 80px 10%;
+            padding: 100px 10%;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* Hero Section - Text Left, Logo Right */
+        /* Hero Section */
         .hero {
-            display: flex;
+            flex-direction: row;
             justify-content: space-between;
-            position: relative;
+            align-items: center;
         }
 
         .hero-text {
             flex: 1;
             max-width: 600px;
-            z-index: 2;
         }
 
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: #666;
-            margin-bottom: 40px;
         }
 
         .logo-container {
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
 
         .floating-logo {
-            width: 350px;
+            width: 380px;
             height: auto;
             animation: float 4s ease-in-out infinite;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
         }
 
-        /* Method Section */
-        .method {
+        /* About & Method Sections */
+        .content-section {
             background-color: white;
-            flex-direction: column;
-            justify-content: center;
+            text-align: center;
         }
 
-        .method h2 {
+        .content-section h2 {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            color: var(--clay);
+        }
+
+        .content-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #555;
         }
 
         .method-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            width: 100%;
+            margin-top: 60px;
         }
 
-        .method-item {
-            padding: 40px;
-            border-left: 1px solid var(--clay);
+        .method-card {
+            padding: 30px;
+            background: var(--cream);
+            border-top: 3px solid var(--clay);
         }
 
-        .method-item h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Details/Contact Section - THE LAST SECTION */
+        /* Details Section */
         .details-section {
             background-color: #f9f6f2;
-            flex-direction: column;
             text-align: center;
         }
 
-        .contact-container {
+        .form-container {
             max-width: 500px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .details-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 40px;
+            margin: 50px auto 0;
         }
 
         form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         input, textarea {
-            width: 100%;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 0; /* Minimalist design */
-            background: transparent;
+            padding: 18px;
+            border: 1px solid #ccc;
+            background: white;
             font-family: inherit;
         }
 
@@ -147,29 +129,24 @@
             background: var(--charcoal);
             color: white;
             border: none;
-            cursor: pointer;
             font-weight: 600;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        button:hover {
-            background: var(--clay);
-        }
+        button:hover { background: var(--clay); }
 
         footer {
-            padding: 40px;
+            padding: 50px;
             text-align: center;
             font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: #999;
+            color: #888;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
             .hero { flex-direction: column; text-align: center; }
-            .hero-text h1 { font-size: 3.5rem; }
-            .floating-logo { width: 250px; margin-top: 50px; }
-            .method-grid { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 3rem; }
+            .floating-logo { width: 280px; margin-top: 50px; }
         }
     </style>
 </head>
@@ -178,42 +155,48 @@
     <section class="hero">
         <div class="hero-text">
             <h1>The Art of Speaking.</h1>
-            <p>A curated collective for those who view language not as a tool, but as a bridge to the human soul.</p>
-            <a href="#contact" style="color: var(--charcoal); font-weight: 600;">Inquire below &darr;</a>
+            <p>A curated collective for those who view language as a bridge to the human soul.</p>
         </div>
         <div class="logo-container">
-            <img src="logo.png" alt="The Lingua Sphere Logo" class="floating-logo">
+            <img src="logo.png" alt="The Lingua Sphere" class="floating-logo">
         </div>
     </section>
 
-    <section class="method">
+    <section class="content-section">
+        <h2>About The Collective</h2>
+        <div class="content-wrap">
+            <p>The Lingua Sphere is more than a school. It is a sanctuary for global citizens. We believe that learning a language should be as fluid and expressive as the cultures they represent. Our mission is to transcend traditional grammar-drills and move toward authentic resonance.</p>
+        </div>
+    </section>
+
+    <section class="content-section" style="background-color: var(--cream);">
         <h2>The Sphere Method</h2>
         <div class="method-grid">
-            <div class="method-item">
-                <h3>Resonance</h3>
-                <p>Learn through the music of the language, focusing on tone and cultural texture.</p>
+            <div class="method-card">
+                <h3>Immersive Flow</h3>
+                <p>Surround yourself with the rhythm of native speech.</p>
             </div>
-            <div class="method-item">
-                <h3>Connection</h3>
-                <p>Direct engagement with native perspectives and authentic storytelling.</p>
+            <div class="method-card">
+                <h3>Cultural Texture</h3>
+                <p>Understand the "why" behind the words.</p>
             </div>
-            <div class="method-item">
-                <h3>Fluency</h3>
-                <p>Reaching a state where the language flows naturally, like water.</p>
+            <div class="method-card">
+                <h3>Global Connection</h3>
+                <p>Speak to be understood, not just to be correct.</p>
             </div>
         </div>
     </section>
 
     <section class="details-section" id="contact">
-        <div class="contact-container">
-            <h2>The Details</h2>
-            <p style="margin-bottom: 30px;">Reach out to begin your journey.</p>
-            
-            <form name="contact" method="POST" data-netlify="true">
+        <h2>The Details</h2>
+        <p>Inquire to begin your journey into the sphere.</p>
+        
+        <div class="form-container">
+            <form name="contact" method="POST" data-netlify="true" action="/">
                 <input type="hidden" name="form-name" value="contact">
                 
                 <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email Address" required>
                 <input type="tel" name="phone" placeholder="Phone Number">
                 <textarea name="message" rows="4" placeholder="Your Message"></textarea>
                 
@@ -223,7 +206,7 @@
     </section>
 
     <footer>
-        &copy; 2026 THE LINGUA SPHERE &bull; SOUTH ASIA
+        &copy; 2026 THE LINGUA SPHERE &bull; tls.southasia@gmail.com
     </footer>
 
 </body>
